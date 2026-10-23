@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">U</div>
+                <span>AdminPanel</span>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active">📊 Dashboard</a></li>
+                <li><a href="create.html">➕ Add User</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-wrapper">
+            <header class="top-bar">
+                <div class="top-bar-title">
+                    <h1>User Management Dashboard</h1>
+                </div>
+                <div class="top-bar-actions">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search records...">
+                    <a href="create.html" class="btn btn-primary">+ Add New User</a>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <!-- Summary Metric Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-label">Total Users</div>
+                        <div class="stat-value" id="totalUsers">0</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-label">System Status</div>
+                        <div class="stat-value">Active</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-label">Pending Actions</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card error">
+                        <div class="stat-label">Database Status</div>
+                        <div class="stat-value">Connected</div>
+                    </div>
+                </div>
+
+                <!-- Alert Banner -->
+                <div id="alertContainer"></div>
+
+                <!-- Data Table -->
+                <div class="table-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Dynamically populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initDashboard();
+        });
+    </script>
+</body>
+</html>
